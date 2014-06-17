@@ -3,9 +3,10 @@ package DBIx::FunctionalAPI;
 use 5.010001;
 use strict;
 use warnings;
+#use Log::Any '$log';
 
-our $VERSION = '0.01'; # VERSION
-our $DATE = '2014-06-15'; # DATE
+our $VERSION = '0.02'; # VERSION
+our $DATE = '2014-06-17'; # DATE
 
 require Exporter;
 our @ISA       = qw(Exporter);
@@ -45,6 +46,7 @@ my %table_arg = (
         summary => 'Table name',
         schema  => 'str*',
         req => 1,
+        pos => 0,
     },
 );
 
@@ -115,8 +117,9 @@ sub list_rows {
     my $detail = $args{detail};
 
     my @rows;
-    my $sth = $dbh->prepare(qq[SELECT * FROM "$table"]);
-    $sth->execute;
+    # can't use placeholder here for table name
+    my $sth = $dbh->prepare("SELECT * FROM ".$dbh->quote_identifier($table));
+    $sth->execute();
     while (my $row = $sth->fetchrow_hashref) {
         if ($detail) {
             push @rows, $row;
@@ -143,7 +146,7 @@ DBIx::FunctionalAPI - Some functions to expose your database as an API
 
 =head1 VERSION
 
-This document describes version 0.01 of DBIx::FunctionalAPI (from Perl distribution DBIx-FunctionalAPI), released on 2014-06-15.
+This document describes version 0.02 of DBIx::FunctionalAPI (from Perl distribution DBIx-FunctionalAPI), released on 2014-06-17.
 
 =head1 SYNOPSIS
 
