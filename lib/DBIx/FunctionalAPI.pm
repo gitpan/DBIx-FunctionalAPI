@@ -6,7 +6,7 @@ use warnings;
 use experimental 'smartmatch';
 use Log::Any '$log';
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.04'; # VERSION
 our $DATE = '2014-06-25'; # DATE
 
 use List::MoreUtils qw(uniq);
@@ -174,7 +174,7 @@ DBIx::FunctionalAPI - Some functions to expose your database as an API
 
 =head1 VERSION
 
-This document describes version 0.03 of DBIx::FunctionalAPI (from Perl distribution DBIx-FunctionalAPI), released on 2014-06-25.
+This document describes version 0.04 of DBIx::FunctionalAPI (from Perl distribution DBIx-FunctionalAPI), released on 2014-06-25.
 
 =head1 SYNOPSIS
 
