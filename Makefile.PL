@@ -20,7 +20,11 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "DBIx::FunctionalAPI",
   "PREREQ_PM" => {
-    "Rinci" => "v1.1.50"
+    "Complete::Util" => 0,
+    "List::MoreUtils" => 0,
+    "Log::Any" => 0,
+    "Rinci" => "v1.1.50",
+    "experimental" => 0
   },
   "TEST_REQUIRES" => {
     "File::Spec" => 0,
@@ -28,7 +32,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.02",
+  "VERSION" => "0.03",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -36,11 +40,15 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Complete::Util" => 0,
   "File::Spec" => 0,
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
+  "List::MoreUtils" => 0,
+  "Log::Any" => 0,
   "Rinci" => "v1.1.50",
-  "Test::More" => 0
+  "Test::More" => 0,
+  "experimental" => 0
 );
 
 
