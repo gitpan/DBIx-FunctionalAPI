@@ -2,8 +2,8 @@ NAME
     DBIx::FunctionalAPI - Some functions to expose your database as an API
 
 VERSION
-    This document describes version 0.04 of DBIx::FunctionalAPI (from Perl
-    distribution DBIx-FunctionalAPI), released on 2014-06-25.
+    This document describes version 0.05 of DBIx::FunctionalAPI (from Perl
+    distribution DBIx-FunctionalAPI), released on 2014-07-02.
 
 SYNOPSIS
 DESCRIPTION

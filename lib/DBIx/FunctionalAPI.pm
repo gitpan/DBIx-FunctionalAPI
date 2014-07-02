@@ -6,11 +6,11 @@ use warnings;
 use experimental 'smartmatch';
 use Log::Any '$log';
 
-our $VERSION = '0.04'; # VERSION
-our $DATE = '2014-06-25'; # DATE
+our $VERSION = '0.05'; # VERSION
+our $DATE = '2014-07-02'; # DATE
 
 use List::MoreUtils qw(uniq);
-use Complete::Util qw(complete_array);
+use Complete::Util qw(complete_array_elem);
 
 require Exporter;
 our @ISA       = qw(Exporter);
@@ -73,7 +73,7 @@ my %table_arg = (
 
             $tables = [uniq @$tables];
 
-            complete_array(word=>$word, array=>$tables);
+            complete_array_elem(word=>$word, array=>$tables);
         },
     },
 );
@@ -174,7 +174,7 @@ DBIx::FunctionalAPI - Some functions to expose your database as an API
 
 =head1 VERSION
 
-This document describes version 0.04 of DBIx::FunctionalAPI (from Perl distribution DBIx-FunctionalAPI), released on 2014-06-25.
+This document describes version 0.05 of DBIx::FunctionalAPI (from Perl distribution DBIx-FunctionalAPI), released on 2014-07-02.
 
 =head1 SYNOPSIS
 
