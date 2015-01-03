@@ -1,13 +1,13 @@
 package DBIx::FunctionalAPI;
 
+our $DATE = '2015-01-03'; # DATE
+our $VERSION = '0.06'; # VERSION
+
 use 5.010001;
 use strict;
 use warnings;
 use experimental 'smartmatch';
 use Log::Any '$log';
-
-our $VERSION = '0.05'; # VERSION
-our $DATE = '2014-07-02'; # DATE
 
 use List::MoreUtils qw(uniq);
 use Complete::Util qw(complete_array_elem);
@@ -19,16 +19,14 @@ our @EXPORT_OK = qw(
                        list_columns
                        list_rows
                );
-# TODO: delete_row, delete_rows
-# TODO: delete_table, delete_tables
-# TODO: create_row, create_table
-# TODO: modify_row, modify_table
-# TODO: rename_column, rename_table
-# TODO: get_table_schema
-# TODO: get_db_schema
 
 our $dbh;
 our %SPEC;
+
+$SPEC{':package'} = {
+    v => 1.1,
+    summary => 'Some functions to expose your database as an API',
+};
 
 my %common_args = (
     dbh => {
@@ -160,7 +158,7 @@ sub list_rows {
 }
 
 1;
-#ABSTRACT: Some functions to expose your database as an API
+# ABSTRACT: Some functions to expose your database as an API
 
 __END__
 
@@ -174,7 +172,7 @@ DBIx::FunctionalAPI - Some functions to expose your database as an API
 
 =head1 VERSION
 
-This document describes version 0.05 of DBIx::FunctionalAPI (from Perl distribution DBIx-FunctionalAPI), released on 2014-07-02.
+This document describes version 0.06 of DBIx::FunctionalAPI (from Perl distribution DBIx-FunctionalAPI), released on 2015-01-03.
 
 =head1 SYNOPSIS
 
@@ -212,8 +210,6 @@ Table name.
 
 =back
 
-Return value:
-
 Returns an enveloped result (an array).
 
 First element (status) is an integer containing HTTP status code
@@ -223,6 +219,7 @@ First element (status) is an integer containing HTTP status code
 element (meta) is called result metadata and is optional, a hash
 that contains extra information.
 
+Return value:  (any)
 
 =head2 list_rows(%args) -> [status, msg, result, meta]
 
@@ -244,8 +241,6 @@ Table name.
 
 =back
 
-Return value:
-
 Returns an enveloped result (an array).
 
 First element (status) is an integer containing HTTP status code
@@ -255,6 +250,7 @@ First element (status) is an integer containing HTTP status code
 element (meta) is called result metadata and is optional, a hash
 that contains extra information.
 
+Return value:  (any)
 
 =head2 list_tables(%args) -> [status, msg, result, meta]
 
@@ -268,8 +264,6 @@ Database handle.
 
 =back
 
-Return value:
-
 Returns an enveloped result (an array).
 
 First element (status) is an integer containing HTTP status code
@@ -279,11 +273,8 @@ First element (status) is an integer containing HTTP status code
 element (meta) is called result metadata and is optional, a hash
 that contains extra information.
 
+Return value:  (any)
 =for Pod::Coverage ^()$
-
-=head1 TODO
-
-Option to select specific catalog and schema (table namespace).
 
 =head1 SEE ALSO
 
@@ -305,11 +296,11 @@ feature.
 
 =head1 AUTHOR
 
-Steven Haryanto <stevenharyanto@gmail.com>
+perlancar <perlancar@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Steven Haryanto.
+This software is copyright (c) 2015 by perlancar@cpan.org.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
